@@ -1,0 +1,16 @@
+# Environments 
+.venv
+venv
+
+#dotenv
+.env
+
+# Django #
+*.log
+*.pot
+*.pyc
+__pycache__/
+db.sqlite3
+media
+
+node_modules
