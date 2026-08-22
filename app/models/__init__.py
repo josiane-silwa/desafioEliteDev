@@ -5,5 +5,6 @@ from .ingresso import Ingresso
 from .pagamento import Pagamento
 from .assento import Assento
 from .portaria import Portaria
+from .validacao_do_ingresso import ValidacaoIngresso
 from .catalogo_externo import CatalogoExterno
 from .compartilhamento_ingresso import CompartilhamentoIngresso
