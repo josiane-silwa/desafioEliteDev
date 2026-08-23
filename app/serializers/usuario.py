@@ -9,18 +9,27 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = "__all__"
-        
+        #fields = "__all__"
+        fields = [
+            "id",
+            "username",
+            "first_name",
+            "last_name",
+            "email",
+            "role",
+            "cpf",
+            "celular",
+            "data_nascimento",
+            "criado_em",
+            "atualizado_em",
+        ]
+
         read_only_fields = [
             "id",
             "criado_em",
             "atualizado_em",
         ]
         
-    def validate_cpf(self, value):
-        if not value.isdigit() or len(value) != 11:
-            raise serializers.ValidationError("CPF deve conter exatamente 11 dígitos numéricos.")
-        return value
 
 class UserCreateSerializer(serializers.ModelSerializer):
     """Serializer dedicado ao cadastro, com senha e confirmação."""
@@ -52,7 +61,11 @@ class UserCreateSerializer(serializers.ModelSerializer):
             "password",
             "password2",
         ]
-    
+    def validate_cpf(self, value):
+            if not value.isdigit() or len(value) != 11:
+                raise serializers.ValidationError("CPF deve conter exatamente 11 dígitos numéricos.")
+            return value
+        
     def validate(self, attrs):
         if attrs["password"] != attrs.pop("password2"):
             raise serializers.ValidationError({"password2": "As senhas não coincidem."})

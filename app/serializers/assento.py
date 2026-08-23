@@ -14,6 +14,7 @@ class AssentoSerializer(serializers.ModelSerializer):
             "codigo",
             "fila",
             "numero",
+            "disponivel",
             "criado_em",
         ]
 

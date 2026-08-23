@@ -7,9 +7,12 @@ from ..models import Reserva
 
 
 class ReservaSerializer(serializers.ModelSerializer):
-
+    # `cliente` nunca vem do payload: quem cria a reserva é sempre o
+    # usuário autenticado (a view repassa `request.user` ao service).
+    # Deixar como read_only aqui evita expor esse campo como input e
+    # ainda assim permite exibi-lo na saída.
     cliente = serializers.PrimaryKeyRelatedField(
-        queryset=User.objects.filter(role="cliente"),
+        read_only=True
     )
 
     class Meta:
@@ -26,35 +29,52 @@ class ReservaSerializer(serializers.ModelSerializer):
             "expira_em",
             "atualizado_em",
         ]
+        # "cliente" não entra aqui: já é read_only pela declaração
+        # explícita do campo acima; listar nos dois lugares seria
+        # redundante.
         read_only_fields = ["id", "status", "criado_em", "atualizado_em"]
+
+        extra_kwargs = {
+            # opcional: se não vier, o service usa o preço do evento
+            # como valor da reserva.
+            "valor": {"required": False},
+        }
 
     def validate(self, attrs):
         evento = attrs.get("evento") or getattr(self.instance, "evento", None)
         assento = attrs.get("assento") or getattr(self.instance, "assento", None)
  
-        if assento and evento and assento.evento_id != evento.id:
-            raise serializers.ValidationError(
-                {"assento": "Este assento não pertence ao evento informado."}
-            )
+        # Sem `validate()` aqui de propósito: as regras de negócio da
+    # reserva (assento pertence ao evento, assento livre, evento
+    # publicado) agora vivem em `services.reserva_criar`, que é quem
+    # efetivamente cria o objeto a partir dos dados já validados
+    # estruturalmente por este serializer. Duplicar a regra aqui
+    # criaria dois lugares para manter sincronizados — e o service,
+    # não o serializer, é a fonte da verdade para regra de domínio.
+
+        # if assento and evento and assento.evento_id != evento.id:
+        #     raise serializers.ValidationError(
+        #         {"assento": "Este assento não pertence ao evento informado."}
+        #     )
  
-        if assento:
-            qs = Reserva.objects.filter(
-                assento=assento,
-                status__in=["pendente", "confirmada"],
-            )
-            if self.instance:
-                qs = qs.exclude(pk=self.instance.pk)
-            if qs.exists():
-                raise serializers.ValidationError(
-                    {"assento": "Este assento já possui uma reserva ativa."}
-                )
+        # if assento:
+        #     qs = Reserva.objects.filter(
+        #         assento=assento,
+        #         status__in=["pendente", "confirmada"],
+        #     )
+        #     if self.instance:
+        #         qs = qs.exclude(pk=self.instance.pk)
+        #     if qs.exists():
+        #         raise serializers.ValidationError(
+        #             {"assento": "Este assento já possui uma reserva ativa."}
+        #         )
  
-        if evento and evento.status != "publicado":
-            raise serializers.ValidationError(
-                {"evento": "Só é possível reservar assentos de eventos publicados."}
-            )
+        # if evento and evento.status != "publicado":
+        #     raise serializers.ValidationError(
+        #         {"evento": "Só é possível reservar assentos de eventos publicados."}
+        #     )
  
-        return attrs
+        # return attrs
 
 class ReservaDetailSerializer(ReservaSerializer):
     cliente = UserSerializer(read_only=True)
