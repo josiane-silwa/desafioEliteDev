@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from reserva import ReservaDetailSerializer
+from .reserva import ReservaDetailSerializer
 from ..models import Ingresso
 
 

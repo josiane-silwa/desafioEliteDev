@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from usuario import User
+from .usuario import User
 from ..models import Portaria
 
 

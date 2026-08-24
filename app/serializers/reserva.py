@@ -1,8 +1,8 @@
 
 from rest_framework import serializers
-from usuario import User, UserSerializer
-from assento import AssentoSerializer
-from evento import EventoSerializer
+from .usuario import UserSerializer
+from .assento import AssentoSerializer
+from .evento import EventoSerializer
 from ..models import Reserva
 
 

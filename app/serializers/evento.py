@@ -1,8 +1,8 @@
 from rest_framework import serializers
-from catalogo_externo import CatalogoExterno
-from catalogo_externo import CatalogoExternoSerializer
-from assento import AssentoSerializer
-from usuario import UserSerializer, User
+from .catalogo_externo import CatalogoExterno, CatalogoExternoSerializer
+#from catalogo_externo import CatalogoExterno
+from .assento import AssentoSerializer
+from .usuario import UserSerializer, User
 from ..models import Evento
 
 
