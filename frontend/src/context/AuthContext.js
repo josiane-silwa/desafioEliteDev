@@ -5,14 +5,13 @@ const AuthContext = createContext(null);
 
 export function AuthProvider({ children }) {
   const [usuario, setUsuario] = useState(null);
-  const [carregando, setCarregando] = useState(true);
+
+  const [carregando, setCarregando] = useState(() => Boolean(localStorage.getItem("access_token")));
 
   useEffect(() => {
     const token = localStorage.getItem("access_token");
-    if (!token) {
-      setCarregando(false);
-      return;
-    }
+    if (!token) return; // nada a buscar; "carregando" já nasceu false
+
     authApi
       .buscarMeuPerfil()
       .then(setUsuario)
