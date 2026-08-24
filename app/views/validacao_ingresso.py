@@ -1,15 +1,16 @@
 from rest_framework import permissions, viewsets, status
+from .permissions import IsOrganizador, IsOwnerOrOrganizador, IsPortariaUser
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from ..services import validacao_ingresso
 from ..models import ValidacaoIngresso
-from ..serializers import ValidacaoIngressoSerializer
+from ..serializers.validacao_ingresso import ValidacaoIngressoSerializer
 
 
 class ValidacaoIngressoViewSet(viewsets.ModelViewSet):
     queryset = ValidacaoIngresso.objects.select_related("ingresso", "portaria").all()
     serializer_class = ValidacaoIngressoSerializer
-    permission_classes = [permissions.IsAuthenticated, permissions.IsPortariaUser]
+    permission_classes = [permissions.IsAuthenticated, IsPortariaUser]
     http_method_names = ["get", "post", "head", "options"]
  
     def create(self, request, *args, **kwargs):

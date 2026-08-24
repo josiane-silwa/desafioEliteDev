@@ -1,7 +1,7 @@
 from rest_framework import viewsets, permissions
 from rest_framework.decorators import action
 from ..models import Pagamento
-from ..serializers import PagamentoSerializer
+from ..serializers.pagamento import PagamentoSerializer
 
 class PagamentoViewSet(viewsets.ModelViewSet):
     queryset = Pagamento.objects.select_related("reserva").all()

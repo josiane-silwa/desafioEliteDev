@@ -1,7 +1,7 @@
 from rest_framework import viewsets, permissions
 from rest_framework.decorators import action
 from ..models import Ingresso
-from ..serializers import IngressoSerializer, IngressoDetailSerializer
+from ..serializers.ingresso import IngressoSerializer, IngressoDetailSerializer
 
 
 class IngressoViewSet(viewsets.ModelViewSet):

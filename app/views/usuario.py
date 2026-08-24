@@ -2,7 +2,7 @@ from rest_framework import permissions, viewsets
 from rest_framework.response import Response
 from rest_framework.decorators import action
 from ..models import User
-from ..serializers import UserSerializer, UserCreateSerializer
+from ..serializers.usuario import UserSerializer, UserCreateSerializer
 
 # Create your views here.
 class UserViewSet(viewsets.ModelViewSet):

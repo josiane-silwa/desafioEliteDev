@@ -1,12 +1,13 @@
 from rest_framework import viewsets, permissions
+from .permissions import IsOrganizador, IsOwnerOrOrganizador, IsPortariaUser
 from rest_framework.decorators import action
 from ..models import Reserva
-from ..serializers import ReservaSerializer, ReservaDetailSerializer
+from ..serializers.reserva import ReservaSerializer, ReservaDetailSerializer
 
 
 class ReservaViewSet(viewsets.ModelViewSet):
     queryset = Reserva.objects.select_related("cliente", "evento", "assento").all()
-    permission_classes = [permissions.IsAuthenticated, permissions.IsOwnerOrOrganizador]
+    permission_classes = [permissions.IsAuthenticated, IsOwnerOrOrganizador]
     filterset_fields = ["status", "evento"]
  
     def get_serializer_class(self):

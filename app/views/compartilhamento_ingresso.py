@@ -3,7 +3,7 @@ from rest_framework.decorators import action
 from rest_framework.response import Response
 from ..services import compartilhamento_ingresso
 from ..models import CompartilhamentoIngresso
-from ..serializers import CompartilhamentoIngressoSerializer
+from ..serializers.compartilhamento_ingresso import CompartilhamentoIngressoSerializer
 
 class CompartilhamentoIngressoViewSet(viewsets.ModelViewSet):
     queryset = CompartilhamentoIngresso.objects.select_related("ingresso").all()

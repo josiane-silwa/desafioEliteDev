@@ -1,9 +1,10 @@
 from rest_framework import viewsets, permissions
+from .permissions import IsOrganizador, IsOwnerOrOrganizador, IsPortariaUser
 from ..models import Portaria
-from ..serializers import PortariaSerializer
+from ..serializers.portaria import PortariaSerializer
 
 # Create your views here.
 class PortariaViewSet(viewsets.ModelViewSet):
     queryset = Portaria.objects.select_related("usuario").all()
     serializer_class = PortariaSerializer
-    permission_classes = [permissions.IsAuthenticated, permissions.IsOrganizador]
+    permission_classes = [permissions.IsAuthenticated, IsOrganizador]

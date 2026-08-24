@@ -1,6 +1,6 @@
 from rest_framework import permissions, viewsets
 from ..models import CatalogoExterno
-from ..serializers import CatalogoExternoSerializer, EventoDetailSerializer
+from ..serializers.catalogo_externo import CatalogoExternoSerializer
 
 class CatalogoExternoViewSet(viewsets.ModelViewSet):
     queryset = CatalogoExterno.objects.all()

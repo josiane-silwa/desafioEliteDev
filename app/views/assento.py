@@ -3,7 +3,7 @@ from rest_framework.decorators import action
 from rest_framework.response import Response
 from ..services import compartilhamento_ingresso
 from ..models import Assento
-from ..serializers import AssentoSerializer
+from ..serializers.assento import AssentoSerializer
 
 class AssentoViewSet(viewsets.ModelViewSet):
     queryset = Assento.objects.select_related("evento").all()

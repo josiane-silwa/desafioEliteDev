@@ -1,8 +1,9 @@
 from rest_framework import permissions, viewsets
+from .permissions import IsOrganizador, IsOwnerOrOrganizador, IsPortariaUser
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from ..models import Evento
-from ..serializers import EventoSerializer, EventoDetailSerializer
+from ..serializers.evento import EventoSerializer, EventoDetailSerializer
 
 
 class EventoViewSet(viewsets.ModelViewSet):
@@ -18,7 +19,7 @@ class EventoViewSet(viewsets.ModelViewSet):
     def get_permissions(self):
         if self.action in ["list", "retrieve"]:
             return [permissions.IsAuthenticatedOrReadOnly()]
-        return [permissions.IsAuthenticated(), permissions.IsOrganizador()]
+        return [permissions.IsAuthenticated(), IsOrganizador()]
  
     def get_queryset(self):
         qs = super().get_queryset()
