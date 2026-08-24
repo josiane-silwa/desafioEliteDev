@@ -1,4 +1,5 @@
 from rest_framework import permissions, viewsets
+from .permissions import IsOrganizador, IsOwnerOrOrganizador, IsPortariaUser
 from ..models import CatalogoExterno
 from ..serializers.catalogo_externo import CatalogoExternoSerializer
 
@@ -11,4 +12,4 @@ class CatalogoExternoViewSet(viewsets.ModelViewSet):
     def get_permissions(self):
         if self.action in ["list", "retrieve"]:
             return [permissions.IsAuthenticatedOrReadOnly()]
-        return [permissions.IsAuthenticated(), permissions.IsOrganizador()]
+        return [permissions.IsAuthenticated(), IsOrganizador()]
