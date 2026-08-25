@@ -1,21 +1,20 @@
 from django.contrib import admin
+from django.contrib.auth.admin import UserAdmin as DjangoUserAdmin
 from .models import User, CatalogoExterno, Assento, Evento, Reserva, Pagamento, Ingresso, Portaria, ValidacaoIngresso, CompartilhamentoIngresso
 
 
 @admin.register(User)
-class UserAdmin(admin.ModelAdmin):
+class UserAdmin(DjangoUserAdmin):
+    model = User
     list_display = (
-        "id",
-        "username",
-        "first_name",
-        "last_name",
-        "email",
-        "role",
-        "cpf",
-        "celular",
-        "data_nascimento",
-        "criado_em",
-        "atualizado_em",
+        "id", "username", "first_name", "last_name", "email",
+        "role", "cpf", "celular", "data_nascimento", "is_staff",
+    )
+    fieldsets = DjangoUserAdmin.fieldsets + (
+        ("Dados adicionais", {"fields": ("role", "cpf", "celular", "data_nascimento")}),
+    )
+    add_fieldsets = DjangoUserAdmin.add_fieldsets + (
+        ("Dados adicionais", {"fields": ("email", "role", "cpf", "celular", "data_nascimento")}),
     )
 
 @admin.register(CatalogoExterno)
