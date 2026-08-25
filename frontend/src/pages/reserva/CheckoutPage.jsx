@@ -8,14 +8,15 @@ import Divider from "@mui/material/Divider";
 import Button from "@mui/material/Button";
 import Alert from "@mui/material/Alert";
 import CircularProgress from "@mui/material/CircularProgress";
-import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
+// import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
+import CheckCircleOutlinedIcon from '@mui/icons-material/CheckCircleOutlined';
 import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 import CreditCardIcon from "@mui/icons-material/CreditCard";
 
 import { buscarReserva, cancelarReserva } from "../../api/reservas";
 import { criarPagamento, aprovarPagamento, recusarPagamento } from "../../api/pagamentos";
 import { emitirIngresso } from "../../api/ingressos";
-import { extrairMensagemErro } from "../../api/client";
+import { extrairMensagemErro } from "../../api/Api";
 import { formatarPreco } from "../../utils/formatters";
 
 // Etapas do checkout simulado: monta o pedido -> aguarda decisão do
@@ -98,11 +99,11 @@ export default function CheckoutPage() {
   if (resultado === "aprovado") {
     return (
       <ResultadoCheckout
-        icone={<CheckCircleOutlineIcon sx={{ fontSize: 64 }} color="success" />}
+        icone={<CheckCircleOutlinedIcon sx={{ fontSize: 64 }} color="success" />}
         titulo="Pagamento aprovado"
         descricao="Seus ingressos já estão disponíveis, com o código em QR pronto para a entrada."
         acao={
-          <Button variant="contained" color="secondary" onClick={() => navigate("/meus-ingressos")}>
+          <Button variant="contained" color="secondary" onClick={() => navigate("/meus_ingressos")}>
             Ver meus ingressos
           </Button>
         }

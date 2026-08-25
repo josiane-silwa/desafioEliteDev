@@ -14,7 +14,7 @@ import RemoveIcon from "@mui/icons-material/Remove";
 
 import { buscarEvento, listarAssentos } from "../../api/eventos";
 import { criarReserva } from "../../api/reservas";
-import { extrairMensagemErro } from "../../api/client";
+import { extrairMensagemErro } from "../../api/Api";
 import { formatarPreco } from "../../utils/formatters";
 
 const MAX_POR_PEDIDO = 6;

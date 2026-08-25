@@ -24,7 +24,7 @@ import {
   criarAssento,
   listarAssentos,
 } from "../../api/eventos";
-import { extrairMensagemErro } from "../../api/client";
+import { extrairMensagemErro } from "../../api/Api";
 
 const TIPOS = [
   { value: "presencial", label: "Presencial" },

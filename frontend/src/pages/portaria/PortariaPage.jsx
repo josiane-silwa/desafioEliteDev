@@ -10,7 +10,8 @@ import Divider from "@mui/material/Divider";
 import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import CircularProgress from "@mui/material/CircularProgress";
-import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+// import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import CheckCircleOutlinedIcon from '@mui/icons-material/CheckCircleOutlined';
 import CancelIcon from "@mui/icons-material/Cancel";
 import HistoryToggleOffIcon from "@mui/icons-material/HistoryToggleOff";
 import QrCodeScannerIcon from "@mui/icons-material/QrCodeScanner";
@@ -24,7 +25,7 @@ import { cores } from "../../theme";
 // aceitar um `evento` esperado na validação (ver observação no chat);
 // hoje a API só distingue os outros três.
 const ESTADOS = {
-  valido: { cor: cores.verde, label: "Ingresso válido", Icone: CheckCircleIcon },
+  valido: { cor: cores.verde, label: "Ingresso válido", Icone: CheckCircleOutlinedIcon },
   invalido: { cor: cores.vermelho, label: "Ingresso inválido", Icone: CancelIcon },
   utilizado: { cor: "#B8860B", label: "Ingresso já utilizado", Icone: HistoryToggleOffIcon },
   evento_errado: { cor: cores.vermelho, label: "Ingresso de outro evento", Icone: CancelIcon },

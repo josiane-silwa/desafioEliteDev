@@ -10,7 +10,7 @@ import Alert from "@mui/material/Alert";
 import Link from "@mui/material/Link";
 
 import { cadastrar } from "../../api/auth";
-import { extrairMensagemErro } from "../../api/client";
+import { extrairMensagemErro } from "../../api/Api";
 
 const INICIAL = {
   username: "",

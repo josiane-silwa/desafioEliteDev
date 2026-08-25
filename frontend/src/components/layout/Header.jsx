@@ -11,7 +11,7 @@ import MenuItem from "@mui/material/MenuItem";
 import Avatar from "@mui/material/Avatar";
 import ConfirmationNumberOutlinedIcon from "@mui/icons-material/ConfirmationNumberOutlined";
 
-import { useAuth } from "../../context/AuthContext";
+import { useAuth } from "../../context/useAuth";
 
 export default function Header() {
   const { usuario, autenticado, isOrganizador, isPortaria, sair } = useAuth();
@@ -58,7 +58,7 @@ export default function Header() {
           </Button>
         )}
         {autenticado && !isOrganizador && !isPortaria && (
-          <Button color="inherit" component={RouterLink} to="/meus-ingressos">
+          <Button color="inherit" component={RouterLink} to="/meus_ingressos">
             Meus ingressos
           </Button>
         )}

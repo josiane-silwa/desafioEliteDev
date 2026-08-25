@@ -51,7 +51,7 @@ export default function MeusIngressosPage() {
           ingressos.map((ingresso) => (
             <ButtonBase
               key={ingresso.id}
-              onClick={() => navigate(`/meus-ingressos/${ingresso.id}`)}
+              onClick={() => navigate(`/meus_ingressos/${ingresso.id}`)}
               sx={{ display: "block", width: "100%", textAlign: "left", borderRadius: 3 }}
             >
               <TicketStub

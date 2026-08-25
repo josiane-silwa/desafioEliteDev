@@ -14,7 +14,7 @@ import EventSeatOutlinedIcon from "@mui/icons-material/EventSeatOutlined";
 
 import { buscarEvento } from "../../api/eventos";
 import { formatarDataHora, formatarPreco } from "../../utils/formatters";
-import { useAuth } from "../../context/AuthContext";
+import { useAuth } from "../../context/useAuth";
 
 export default function EventoDetailPage() {
   const { id } = useParams();

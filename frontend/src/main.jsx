@@ -6,7 +6,7 @@ import { ThemeProvider } from "@mui/material/styles";
 
 import App from "./App.jsx";
 import theme from "./theme.js";
-import { AuthProvider } from "./context/AuthContext.jsx";
+import { AuthProvider } from "./context/AuthProvider.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
