@@ -81,7 +81,7 @@ export default function App() {
 
         {/* Meus ingressos (cliente) */}
         <Route
-          path="meus-ingressos"
+          path="meus_ingressos"
           element={
             <ProtectedRoute roles={["cliente"]}>
               <MeusIngressosPage />
@@ -89,7 +89,7 @@ export default function App() {
           }
         />
         <Route
-          path="meus-ingressos/:id"
+          path="meus_ingressos/:id"
           element={
             <ProtectedRoute roles={["cliente"]}>
               <RemontarPorParametro Componente={IngressoDetailPage} />

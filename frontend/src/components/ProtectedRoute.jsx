@@ -2,7 +2,7 @@ import { Navigate } from "react-router-dom";
 import Box from "@mui/material/Box";
 import CircularProgress from "@mui/material/CircularProgress";
 
-import { useAuth } from "../context/AuthContext";
+import { useAuth } from "../context/useAuth";
 
 export default function ProtectedRoute({ children, roles }) {
   const { autenticado, carregando, usuario } = useAuth();

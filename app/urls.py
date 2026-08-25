@@ -1,5 +1,6 @@
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
+from .views.auth import LogoutView, LoginView, CsrfCookieView
 from .views import (UserViewSet, 
                     ReservaViewSet, 
                     EventoViewSet,
@@ -27,5 +28,8 @@ router.register(r"portaria", PortariaViewSet, basename='portaria')
 app_name = "eventos"
 
 urlpatterns = [
+    path("csrf/", CsrfCookieView.as_view(), name="csrf"),
+    path("login/", LoginView.as_view(), name="login"),
+    path("logout/", LogoutView.as_view(), name="logout"),
     path('', include(router.urls)),
 ]
