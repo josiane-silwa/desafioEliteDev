@@ -41,7 +41,7 @@ export default function Header() {
         >
           <ConfirmationNumberOutlinedIcon />
           <Typography variant="h6" component="span" sx={{ fontSize: "1.15rem" }}>
-            Bilheteria
+            Bilheteria - Shows & Eventos
           </Typography>
         </Box>
 
