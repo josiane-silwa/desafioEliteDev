@@ -36,6 +36,32 @@ onde um organizador publica eventos e um cliente compra ingressos.
     ├── requirements.txt
     ├── README.md
     └── .env
+    desafio-elite-dev/
+│
+├── backend/
+│   ├── manage.py
+│   ├── requirements.txt
+│   ├── config/
+│   │   ├── settings.py
+│   │   ├── urls.py
+│   │   └── wsgi.py
+│   │
+│   └── events/
+│       ├── models.py
+│       ├── serializers.py
+│       ├── views.py
+│       ├── services.py
+│       ├── permissions.py
+│       └── urls.py
+│
+├── frontend/
+│   ├── package.json
+│   ├── vite.config.js
+│   └── src/
+│
+├── README.md
+└── .gitignore
+
     
 ## 📦 Instalação
 Siga os passos abaixo para rodar o projeto localmente:
