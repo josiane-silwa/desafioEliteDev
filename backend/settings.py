@@ -160,8 +160,10 @@ CORS_ALLOW_CREDENTIALS = True
 
 CSRF_TRUSTED_ORIGINS = [
     "http://localhost:5173",
-    FRONTEND_URL,
+    "https://bilheteria-backend.onrender.com",
 ]
+
+WHITENOISE_ROOT = BASE_DIR / "frontend" / "dist"
 
 CSRF_COOKIE_HTTPONLY = False
 SESSION_COOKIE_SAMESITE = 'Lax'

@@ -15,10 +15,12 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include, re_path
+from app.views.spa import spa_view
 
 urlpatterns = [
-    path('',  include('app.urls')),  # Adiciona essa linha para a raiz responder 200 OK
+    #path('',  include('app.urls')),  # Adiciona essa linha para a raiz responder 200 OK
     path('admin/', admin.site.urls),
     path('app/', include('app.urls')),
+    re_path(r"^(?!admin/|app/).*$", spa_view),  # tudo mais vai pro React
 ]
