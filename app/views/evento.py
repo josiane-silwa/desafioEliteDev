@@ -2,6 +2,7 @@ from rest_framework import permissions, viewsets
 from .permissions import IsOrganizador, IsOwnerOrOrganizador, IsPortariaUser
 from rest_framework.decorators import action
 from rest_framework.response import Response
+from .. import services          
 from ..models import Evento
 from ..serializers.evento import EventoSerializer, EventoDetailSerializer
 

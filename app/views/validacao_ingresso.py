@@ -2,6 +2,7 @@ from rest_framework import permissions, viewsets, status
 from .permissions import IsOrganizador, IsOwnerOrOrganizador, IsPortariaUser
 from rest_framework.decorators import action
 from rest_framework.response import Response
+from .. import services         
 from ..services import validacao_ingresso
 from ..models import ValidacaoIngresso
 from ..serializers.validacao_ingresso import ValidacaoIngressoSerializer

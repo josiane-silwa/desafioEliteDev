@@ -117,9 +117,15 @@ export default function PortariaPage() {
     return () => {
       cancelado = true;
       if (scannerRef.current) {
-        scannerRef.current.stop().catch(() => {});
-        scannerRef.current.clear();
+        // scannerRef.current.stop().catch(() => {});
+        // scannerRef.current.clear();
+        // scannerRef.current = null;
+        const leitorAtual = scannerRef.current;
         scannerRef.current = null;
+        leitorAtual
+          .stop()
+          .then(() => leitorAtual.clear())
+          .catch(() => {});
       }
     };
   }, [modo, processarCodigo]);

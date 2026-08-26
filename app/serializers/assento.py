@@ -5,6 +5,8 @@ from ..models import Assento
 
 class AssentoSerializer(serializers.ModelSerializer):
 
+    disponivel = serializers.SerializerMethodField()
+    
     class Meta:
         model = Assento
         #fields = "__all__"

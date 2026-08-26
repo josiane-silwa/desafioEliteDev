@@ -1,6 +1,9 @@
 from rest_framework import viewsets, permissions
 from .permissions import IsOrganizador, IsOwnerOrOrganizador, IsPortariaUser
 from rest_framework.decorators import action
+from rest_framework import viewsets, permissions, status
+from rest_framework.response import Response
+from .. import services       
 from ..models import Reserva
 from ..serializers.reserva import ReservaSerializer, ReservaDetailSerializer
 

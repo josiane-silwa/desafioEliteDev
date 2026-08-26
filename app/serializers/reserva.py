@@ -1,5 +1,8 @@
 
 from rest_framework import serializers
+from rest_framework import viewsets, permissions, status
+from rest_framework.response import Response
+from .. import services
 from .usuario import UserSerializer
 from .assento import AssentoSerializer
 from .evento import EventoSerializer
@@ -74,7 +77,7 @@ class ReservaSerializer(serializers.ModelSerializer):
         #         {"evento": "Só é possível reservar assentos de eventos publicados."}
         #     )
  
-        # return attrs
+        return attrs
 
 class ReservaDetailSerializer(ReservaSerializer):
     cliente = UserSerializer(read_only=True)
