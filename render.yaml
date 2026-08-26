@@ -13,7 +13,7 @@ services:
     # manage.py fica na raiz do repositório (a pasta "backend/" é só o
     # pacote de settings/urls). Ajuste rootDir aqui se o seu repositório
     # tiver back-end e front-end em pastas separadas dentro de um monorepo.
-    buildCommand: "./build.sh"
+    buildCommand: "build.sh"
     startCommand: "gunicorn backend.wsgi:application"
     envVars:
       - key: PYTHON_VERSION
