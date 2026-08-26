@@ -63,7 +63,21 @@ Organizador: criação e publicação de eventos, definição de mapa de assento
 Cliente: reserva de assento/quantidade, pagamento simulado, emissão de ingresso com QR code, "Meus ingressos", compartilhamento de ingresso por link
 Portaria: leitura de QR code (câmera) ou digitação manual do código, com validação única (evita reuso do mesmo ingresso)
 Prevenção de venda duplicada do mesmo assento
+<br>
+Para popular a base com eventos reais da Ticketmaster:
+python manage.py sincronizar_catalogo --city="Sao Paulo" --keyword="show"
 
+Papéis de usuário
+Cliente	    -> Buscar eventos, reservar/comprar ingresso, ver "Meus ingressos" com QR code \
+Organizador	-> Criar/editar/publicar eventos, definir assentos/pista, acompanhar vendas \
+Portaria	-> Validar ingressos por leitura de QR code ou código manual
+<br><br>
+Para testes:
+senha: @J612612 \
+JoseSilva -> organizador \
+MarcosSantos -> cliente \
+MarinaFerreira -> portaria
+<br>
 ## 📦 Instalação
 Siga os passos abaixo para rodar o projeto localmente:
 
