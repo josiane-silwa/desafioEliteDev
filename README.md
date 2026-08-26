@@ -62,7 +62,8 @@ Busca pública de eventos (por título, cidade, data)
 Organizador: criação e publicação de eventos, definição de mapa de assentos ou pista por quantidade, vínculo com item do catálogo externo (Ticketmaster)
 Cliente: reserva de assento/quantidade, pagamento simulado, emissão de ingresso com QR code, "Meus ingressos", compartilhamento de ingresso por link
 Portaria: leitura de QR code (câmera) ou digitação manual do código, com validação única (evita reuso do mesmo ingresso)
-Prevenção de venda duplicada do mesmo assento
+Prevenção de venda duplicada do mesmo assento. \
+O compartilhamento dos ingressos ainda não foi implementado.
 <br>
 Para popular a base com eventos reais da Ticketmaster:
 python manage.py sincronizar_catalogo --city="Sao Paulo" --keyword="show"
