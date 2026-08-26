@@ -19,7 +19,7 @@ from django.urls import path, include, re_path
 from app.views.spa import spa_view
 
 urlpatterns = [
-    path('',  include('app.urls')),  # Adiciona essa linha para a raiz responder 200 OK
+    #path('',  include('app.urls')),  # Adiciona essa linha para a raiz responder 200 OK
     path('admin/', admin.site.urls),
     path('app/', include('app.urls')),
     re_path(r"^(?!admin/|app/).*$", spa_view),  # tudo mais vai pro React
