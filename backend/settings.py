@@ -149,6 +149,8 @@ REST_FRAMEWORK = {
     ],
 }
 
+FRONTEND_URL = config("FRONTEND_URL", default="http://localhost:5173")
+
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
     FRONTEND_URL,
@@ -158,6 +160,7 @@ CORS_ALLOW_CREDENTIALS = True
 
 CSRF_TRUSTED_ORIGINS = [
     "http://localhost:5173",
+    FRONTEND_URL,
 ]
 
 CSRF_COOKIE_HTTPONLY = False
