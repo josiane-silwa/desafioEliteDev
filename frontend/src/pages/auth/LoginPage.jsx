@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 // import Button from "@mui/material/Button";
 // import Stack from "@mui/material/Stack";
 // import Alert from "@mui/material/Alert";
-// import Link from "@mui/material/Link";
+import Link from "@mui/material/Link";
 
 // import { useAuth } from "../../context/AuthContext";
 import { useAuth } from "../../context/useAuth";
@@ -114,6 +114,9 @@ const [username, setUsername] = useState("");
       <button type="submit" disabled={submetendo}>
         {submetendo ? "Entrando..." : "Entrar"}
       </button>
+      <p>
+        Não tem conta? <Link to="/cadastro">Cadastre-se</Link>
+      </p>
     </form>
   );
 }
