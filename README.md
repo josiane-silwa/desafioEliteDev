@@ -3,13 +3,30 @@
 
 
 ## 📋 Descrição
-Projeto desenvolvido para o desafio do processo seletivo Elite Dev. Que implementa uma aplicação Python, com a construção de uma Plataforma de Eventos e Ingressos, 
-onde um organizador publica eventos e um cliente compra ingressos.
+Projeto desenvolvido para o desafio do processo seletivo Elite Dev. Que implementa uma aplicação Python, com a construção de uma Plataforma web para descoberta de eventos, reserva/compra de ingressos com QR code e validação na portaria, com três perfis de usuário: Organizador, Cliente e Portaria. Onde um organizador publica eventos e um cliente compra ingressos que são validados na portaria.
 
 ## 🛠️ Tecnologias Utilizadas
+Stack
+
+Back-end
+
+Python / Django + Django REST Framework
+Autenticação por sessão (cookies) + proteção CSRF
+SQLite (desenvolvimento) / PostgreSQL (produção)
+Integração com a API pública Ticketmaster Discovery para importar eventos reais para o catálogo
+
+Front-end
+
+React + Vite
+Material UI (MUI)
+React Router
+
+Deploy
+
+Render (Web Service para o back-end + Static Site para o front-end)
 <div align="left">
     
-[![Minhas Habilidades](https://skillicons.dev/icons?i=nodejs,react,git,vscode,python,mysql,postgres,django
+[![Minhas Habilidades](https://skillicons.dev/icons?i=nodejs,react,git,vscode,python,mysql,postgres,django,mui
 )](https://skillicons.dev)  <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/djangorest/wordmark.svg" width="60px" height="60px"/>
 
 
@@ -28,41 +45,25 @@ onde um organizador publica eventos e um cliente compra ingressos.
 
 ## 🏗️📐 Arquitetura
     desafioEliteDev/
-    ├── documentos/
-    │   └── dados_entrega_modificado.csv     # Dataframe de dados
-    ├── App                               # Interface de chat (Streamlit)
-    ├── backend                       # Construção das ferramentas - Orquestração - Geração de respostas
-    ├── frontend                       # Construção das ferramentas - Orquestração - Geração de respostas
+    ├── app                  # app Django principal (models, views, serializers,
+    │                        # services, management commands)
+    ├── manage.py
+    ├── backend              # settings, urls, wsgi/asgi do projeto Django
+    ├── frontend             # aplicação React (Vite)
     ├── requirements.txt
+    ├── build.sh             # script de build usado pelo Render
+    └── render.yaml          # blueprint de deploy do Render
     ├── README.md
     └── .env
-    desafio-elite-dev/
-│
-├── backend/
-│   ├── manage.py
-│   ├── requirements.txt
-│   ├── config/
-│   │   ├── settings.py
-│   │   ├── urls.py
-│   │   └── wsgi.py
-│   │
-│   └── events/
-│       ├── models.py
-│       ├── serializers.py
-│       ├── views.py
-│       ├── services.py
-│       ├── permissions.py
-│       └── urls.py
-│
-├── frontend/
-│   ├── package.json
-│   ├── vite.config.js
-│   └── src/
-│
-├── README.md
-└── .gitignore
 
-    
+## 📝 Funcionalidades
+Cadastro e login com três papéis: Organizador, Cliente e Portaria
+Busca pública de eventos (por título, cidade, data)
+Organizador: criação e publicação de eventos, definição de mapa de assentos ou pista por quantidade, vínculo com item do catálogo externo (Ticketmaster)
+Cliente: reserva de assento/quantidade, pagamento simulado, emissão de ingresso com QR code, "Meus ingressos", compartilhamento de ingresso por link
+Portaria: leitura de QR code (câmera) ou digitação manual do código, com validação única (evita reuso do mesmo ingresso)
+Prevenção de venda duplicada do mesmo assento
+
 ## 📦 Instalação
 Siga os passos abaixo para rodar o projeto localmente:
 
@@ -112,5 +113,10 @@ Independente do resultado alcançado no processo, será muito interessante para 
 Foi mais um aprendizado, mais uma oportunidade de crescimento.
 
 <br>
-<img width="1919" height="974" alt="Captura de tela 2026-08-19 171741" src="https://github.com/user-attachments/assets/0a1dc5d7-678d-4c5a-902c-66355d62a28a" />
+<img width="1206" height="699" alt="Captura de tela 2026-08-25 214749" src="https://github.com/user-attachments/assets/f99aeb7d-1778-4d14-9839-60259caa63ec" />
+<img width="1216" height="807" alt="Captura de tela 2026-08-25 214715" src="https://github.com/user-attachments/assets/072a50c9-c166-4673-94a5-c83c4bb96b32" />
+<img width="1223" height="401" alt="Captura de tela 2026-08-25 214631" src="https://github.com/user-attachments/assets/e5068788-32e0-4299-bead-bfbd3496a3b5" />
+<img width="1204" height="905" alt="Captura de tela 2026-08-25 214526" src="https://github.com/user-attachments/assets/89d4224f-77cf-4512-99e0-fdaa02a04fbe" />
+<img width="1221" height="924" alt="Captura de tela 2026-08-25 212527" src="https://github.com/user-attachments/assets/f7f1ed49-88cd-4499-a35f-89c85bcf0386" />
+
 <br><br>
