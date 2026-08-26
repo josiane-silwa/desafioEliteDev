@@ -116,7 +116,7 @@ A aplicação será automaticamente aberta no seu navegador na porta:  http://lo
 <br><br>
 
 ## 📁 Acesso ao projeto
-<a href="https://agenteassistentedados.streamlit.app" target="_blank"><span>Clique aqui</span></a> para ver uma demonstração do projeto rodando no Render.
+<a href="https://bilheteria-frontend.onrender.com" target="_blank"><span>Clique aqui</span></a> para ver uma demonstração do projeto rodando no Render.
 
 
 ## 🔎❓Observações
